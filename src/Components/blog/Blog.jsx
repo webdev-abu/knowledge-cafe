@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types'
 
 
-const Blog = ({blogs}) => {
-    console.log(blogs)
-    const {author, author_img, cover, hashtags, posted_date, reading_time, title }=blogs;
+const Blog = ({blogs,handleAddBookmark}) => {
+    // console.log(blogs)
+    const {author, author_img, cover, hashtags, posted_date, reading_time, title, }=blogs;
   return (
     <>
         <div className="card shadow-xl">
@@ -29,7 +29,7 @@ const Blog = ({blogs}) => {
                     </div>
                     <div className="card-title">
                         <p className='sm:text-[16px] md:text-[20px] font-medium text-[rgba(17,17,17,0.6)] mr-3'>{reading_time} min read</p>
-                        <FontAwesomeIcon icon={faBookmark}  className='p-3 border border-1 border-purple-700 hover:bg-purple-700 hover:text-[#ffffff] hover:cursor-pointer'/>
+                        <FontAwesomeIcon icon={faBookmark} onClick={()=>handleAddBookmark(blogs)}  className='p-3 border border-1 border-purple-700 hover:bg-purple-700 hover:text-[#ffffff] hover:cursor-pointer'/>
                     </div>
                 </div>
                 <h2 className="sm:text-[18px] md:text-[40px] font-bold text-[#111111]">{title}</h2>
@@ -52,6 +52,7 @@ const Blog = ({blogs}) => {
 
 Blog.propTypes = {
   blogs: PropTypes.object.isRequired,
+  handleAddBookmark: PropTypes.func.isRequired,
 }
 
 export default Blog;

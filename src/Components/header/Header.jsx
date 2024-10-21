@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 
 export const Header = () => {
   return (
@@ -20,10 +18,6 @@ export const Header = () => {
   </div>
 </div>
   )
-}
-
-Header.propTypes = {
-  second: PropTypes.third
 }
 
 export default Header;
