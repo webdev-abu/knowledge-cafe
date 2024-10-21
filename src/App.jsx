@@ -2,6 +2,7 @@
 import './App.css'
 import Blogs from './Components/blogs/Blogs'
 import Bookmarks from './Components/bookmarks/Bookmarks'
+import Footer from './Components/footer/Footer'
 import Header from './Components/header/Header'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Bookmarks/>
        </div>
        </main>
+       <Footer/>
     </>
   )
 }
