@@ -14,17 +14,17 @@ const Blog = ({blogs,handleAddBookmark,handleMarkToRead}) => {
                 src={cover}
                 alt="Shoes"  className='w-full h-auto'/>
             </figure>
-            <div className="card-body">
-                <div className='md:flex justify-between items-center'>
+            <div className="card-body px-3 md:px-6">
+                <div className='flex justify-between items-center'>
                     <div className="flex justify-center items-center">
-                    <div className="avatar mr-6">
+                    <div className="avatar md:mr-6 mr-3">
                         <div className="w-12 rounded-full">
                         <img src={author_img} />
                         </div>
                     </div>
                     <div className='flex flex-col'>
                         <h2 className="sm:text-[16px] md:text-[24px] font-bold text-[#111111]">{author}</h2>
-                        <p className="text-[16px] font-semibold text-[rgba(17,17,17,0.6)]">{posted_date} (4 Days ago)</p>
+                        <p className="text-[16px] font-semibold text-[rgba(17,17,17,0.6)]">{posted_date}</p>
                     </div>
                     </div>
                     <div className="card-title">
