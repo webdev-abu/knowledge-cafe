@@ -3,7 +3,7 @@ export const Header = () => {
   return (
     <div className="navbar bg-[#ffffff] my-8 md:px-0">
     <div className="flex-1">
-        <a className="sm:text-[18px] md:text-[40px] font-bold text-[#111111]">Knowledge Cafe</a>
+        <a className="sm:text-[18px] md:text-[40px] font-bold text-[#111111]">WEBDEV Knowledge Cafe</a>
     </div>
   <div className="flex-none">
     <div className="dropdown-end">
