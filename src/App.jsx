@@ -68,7 +68,7 @@ function App() {
   return (
     <>
        <Header/>
-       <div className="divider"></div>
+       <div className="divider mt-[100px]"></div>
        <main className='md:flex justify-between gap-5 sm:mx-3 md:mx-0'>
        <div className='w-full sm:mx-3 md:w-2/3 md:mx-0'>
         <Blogs handleAddBookmark={handleAddBookmark} handleMarkToRead={handleMarkToRead}/>
