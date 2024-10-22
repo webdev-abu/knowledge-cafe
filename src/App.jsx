@@ -5,12 +5,13 @@ import Blogs from './Components/blogs/Blogs'
 import Bookmarks from './Components/bookmarks/Bookmarks'
 import Footer from './Components/footer/Footer'
 import Header from './Components/header/Header'
-import { addToLocalStorage, getLocalStorageBookmark } from './Components/utilities/utilities'
+import { addToLocalStorage, getLocalStorageBookmark, removeFromLocalStorage } from './Components/utilities/utilities'
 
 function App() {
 
   const [blog, setBlog]=useState([]);
   const [bookmarks,setBookmarks]=useState([]);
+  const [read, setRead]=useState(0);
 
   useEffect(()=>{
     fetch('blogs.json')
@@ -49,6 +50,19 @@ function App() {
       }
     }
 
+    const handleMarkToRead = (blog) =>{
+      const newReadTime =blog.reading_time;
+      setRead(read+newReadTime);
+  }
+
+  const handleRemoveBookmark =(id)=>{
+    // UI Bookmark Remove
+    const remainingBookmark =bookmarks.filter((item)=>item.id !== id);
+    console.log(remainingBookmark)
+    setBookmarks(remainingBookmark);
+    // Local Storage Bookmark Id Remove
+    removeFromLocalStorage(id);
+  }
 
 
   return (
@@ -57,11 +71,11 @@ function App() {
        <div className="divider"></div>
        <main className='md:flex justify-between gap-5 sm:mx-3 md:mx-0'>
        <div className='w-full sm:mx-3 md:w-2/3 md:mx-0'>
-        <Blogs handleAddBookmark={handleAddBookmark}/>
+        <Blogs handleAddBookmark={handleAddBookmark} handleMarkToRead={handleMarkToRead}/>
        </div>
        <div className='w-full sm:mx-3 md:w-1/3 md:mx-0'>
         {/* <Bookmarks bookmarks={bookmarks} localStorageBookmarks={localStorageBookmarks}/> */}
-        <Bookmarks bookmarks={bookmarks}/>
+        <Bookmarks bookmarks={bookmarks} read={read} handleRemoveBookmark={handleRemoveBookmark}/>
        </div>
        </main>
        <Footer/>

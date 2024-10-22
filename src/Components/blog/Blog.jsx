@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types'
 
 
-const Blog = ({blogs,handleAddBookmark}) => {
+const Blog = ({blogs,handleAddBookmark,handleMarkToRead}) => {
     // console.log(blogs)
     const {author, author_img, cover, hashtags, posted_date, reading_time, title, }=blogs;
   return (
@@ -41,7 +41,7 @@ const Blog = ({blogs,handleAddBookmark}) => {
                     </p>
                 </div>
                 <div className="card-actions justify-start">
-                <a className='sm:text-[16px] md:text-[20px] font-bold text-[#6047EC] hover:underline hover:cursor-pointer'>Mark as read</a>
+                <a onClick={()=>handleMarkToRead(blogs)} className='sm:text-[16px] md:text-[20px] font-bold text-[#6047EC] hover:underline hover:cursor-pointer'>Mark as read</a>
                 </div>
             </div>
         </div>
@@ -53,6 +53,7 @@ const Blog = ({blogs,handleAddBookmark}) => {
 Blog.propTypes = {
   blogs: PropTypes.object.isRequired,
   handleAddBookmark: PropTypes.func.isRequired,
+  handleMarkToRead: PropTypes.func.isRequired,
 }
 
 export default Blog;
